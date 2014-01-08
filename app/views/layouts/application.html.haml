@@ -10,6 +10,8 @@
   %body
     %header
       = render 'layouts/navigation'
-    %main{:role => "main"}
-      = render 'layouts/messages'
-      = yield
+    %div.main{:role => "main"}
+      %div.container
+        %div.content
+          = render 'layouts/messages'
+          = yield
