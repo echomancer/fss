@@ -1,8 +1,11 @@
-h1. Fss
+h1. Food Storage System
 
-This application was generated with the "rails_apps_composer":https://github.com/RailsApps/rails_apps_composer gem provided by the "RailsApps Project":http://railsapps.github.io/.
+This application was generated with the "rails_apps_composer":https://github.com/RailsApps/rails_apps_composer gem provided by the "RailsApps Project":http://railsapps.github.io/. 
+The main purpose of this program is to keep track of the current items in a user's pantry. Eventually the user will be able to add recipes and then use them and automatically have the pantry updated. The user will also eventually be able to track the relative prices of items bought and track general trends of usage, price, and other qualities. The pantry and usage information will be linked directly to a user but aggregate data may be possible for users wanting to look at general pricing information.
 
 h2. Diagnostics
+
+Besides the below warnings everything seems to work fine.
 
 This application was built with recipes that are NOT known to work together.
 
@@ -46,7 +49,7 @@ The application is configured to send email using a Gmail account.
 
 h2. Getting Started
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Just clone you a copy and then set up your application.yml and database.yml
 
 h2. Documentation and Support
 
@@ -54,11 +57,11 @@ This is the only documentation.
 
 h4. Issues
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Error checks and uniqueness checks are very limited since this is a very early stage application.
 
 h2. Similar Projects
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+The application was inspired by MyFitnessPal
 
 h2. Contributing
 
@@ -73,8 +76,9 @@ If you add functionality to this application, create an alternative implementati
 
 h2. Credits
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Primary Developer: Jason Perkins
+
 
 h2. License
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+http://www.opensource.org/licenses/mit-license
