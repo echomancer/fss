@@ -1,0 +1,14 @@
+= simple_form_for(@stock) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :food, include_blank: false
+    = f.input :price
+    = f.input :quantity
+    = f.input :store
+    = f.input :discount
+    = f.input :bought
+    = f.input :user_id, as: :hidden, input_html: {value: current_user.id}
+
+  .form-actions
+    = f.button :submit

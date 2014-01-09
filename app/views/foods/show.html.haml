@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @food.name
+%p
+  %b Producer:
+  = @food.producer.name
+%p
+  %b Upc:
+  = @food.upc
+%p
+  %b Servings:
+  = @food.servings
+%p
+  %b Serving size:
+  = @food.serving_size
+%p
+  %b Unit:
+  = @food.unit.name
+
+= link_to 'Edit', edit_food_path(@food)
+\|
+= link_to 'Back', foods_path

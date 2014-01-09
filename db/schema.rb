@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140108225406) do
+ActiveRecord::Schema.define(version: 20140109034459) do
+
+  create_table "foods", force: true do |t|
+    t.string   "name"
+    t.integer  "producer_id"
+    t.integer  "upc"
+    t.decimal  "servings"
+    t.decimal  "serving_size"
+    t.integer  "unit_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "foods", ["name", "producer_id", "upc"], name: "index_foods_on_name_and_producer_id_and_upc", unique: true, using: :btree
+  add_index "foods", ["producer_id"], name: "index_foods_on_producer_id", using: :btree
+  add_index "foods", ["unit_id"], name: "index_foods_on_unit_id", using: :btree
+
+  create_table "producers", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "producers", ["name"], name: "index_producers_on_name", unique: true, using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"
@@ -23,6 +46,39 @@ ActiveRecord::Schema.define(version: 20140108225406) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
+
+  create_table "stocks", force: true do |t|
+    t.integer  "food_id"
+    t.decimal  "price"
+    t.decimal  "quantity"
+    t.integer  "store_id"
+    t.decimal  "discount"
+    t.datetime "bought"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stocks", ["food_id", "store_id", "bought", "user_id"], name: "index_stocks_on_food_id_and_store_id_and_bought_and_user_id", unique: true, using: :btree
+  add_index "stocks", ["food_id"], name: "index_stocks_on_food_id", using: :btree
+  add_index "stocks", ["store_id"], name: "index_stocks_on_store_id", using: :btree
+  add_index "stocks", ["user_id"], name: "index_stocks_on_user_id", using: :btree
+
+  create_table "stores", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stores", ["name"], name: "index_stores_on_name", unique: true, using: :btree
+
+  create_table "units", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "units", ["name"], name: "index_units_on_name", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

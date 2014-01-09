@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Food:
+  = @stock.food.name
+%p
+  %b Amount Paid:
+  = number_to_currency(@stock.price-@stock.discount, precision: 2)
+%p
+  %b Discount Amount:
+  = number_to_currency(@stock.discount, precision: 2)
+%p
+  %b Quantity:
+  = @stock.quantity
+%p
+  %b Store:
+  = @stock.store.name
+%p
+  %b Bought:
+  = @stock.bought
+
+= link_to 'Edit', edit_stock_path(@stock)
+\|
+= link_to 'Back', stocks_path

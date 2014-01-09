@@ -1,0 +1,129 @@
+<h1>Listing Current Pantry</h1>
+<% if @stocks.count == 0 %>
+  <div class="row text-center">
+    <h4>Your pantry is currently empty.</h4>
+  </div>
+<% else %>
+  <%= will_paginate %>
+  <div class="row">
+    <div class="col-md-3 col-xs-3">Food</div>
+    <div class="col-md-3 col-xs-3">Total Servings Left</div>
+    <div class="col-md-3 col-xs-3">Total Amount Paid</div>
+    <div class="col-md-3 col-xs-3">Total Discount Amount</div>
+  </div>
+  <div class="row">
+    <div class="panel-group" id="#accordian">
+      <% current_food, last_food = nil, nil %>
+      <% @stocks.each do |stock| %>
+        <% current_food = stock.food.id %>
+        <% if current_food != last_food %>
+          <% current_total = @totals.find_by(food_id: stock.food.id) %>
+          <% if last_food != nil %>
+            </div></div></div></div>
+          <% end %><!-- end of closing divs -->
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordian-toggle" data-toggle="collapse" data-parent="#accordian" href=<%= "#food_data_#{current_food}"%>>
+                  <div class="row">
+                    <div class="col-md-3 col-xs-3"><%= stock.food.name %></div>
+                    <div class="col-md-3 col-xs-3"><%= current_total.quantity %></div>
+                    <div class="col-md-3 col-xs-3"><%= number_to_currency(current_total.price-current_total.discount, precision: 2) %></div>
+                    <div class="col-md-3 col-xs-3"><%= number_to_currency(current_total.discount, precision: 2) %></div>
+                  </div>
+                </a>
+              </h4>
+            </div>
+            <% id = "food_data_#{current_food}" %>
+            <div id="<%=id%>" class="panel-collapse collapse">
+              <div class="panel-body">
+                <div class="container">
+                  <table class="table table-condensed">
+                    <thead>
+                      <th>Current Quantity</th>
+                      <th>Price Paid</th>
+                      <th>Discount</th>
+                      <th>Store</th>
+                      <th>Date Bought</th>
+                    </thead>
+                    <tbody>
+        <% end %><!-- end of panel info -->
+                      <tr>
+                        <td><%= stock.quantity %></td>
+                        <td><%= number_to_currency(stock.price-stock.discount, precision: 2) %></td>
+                        <td><%= number_to_currency(stock.discount, precision: 2) %></td>
+                        <td><%= stock.store.name %></td>
+                        <td><%= stock.bought %></td>
+                      </tr>
+                      <% last_food = current_food %>
+      <% end %><!-- end of loop -->
+                    </tbody>
+                  </table>
+                </div><!-- end of container -->
+              </div><!-- end of panel-body -->
+            </div><!-- end of panel-collapse -->
+          </div><!-- end of panel -->
+    </div><!-- end of panel-group -->
+  </div><!-- end of row -->
+  <%= will_paginate %>
+<% end %><!-- end of display for visible pantry items -->
+</br>
+<div class="row">
+  <% if can? :create, @stocks %><%= link_to "Add Food to Pantry", new_stock_path, {:class => 'btn btn-primary'} %><% end %>
+</div>
+
+<!-- %h1 Listing Current Pantry
+- if @stocks.count == 0
+  .row.text-center
+    %h4 Your pantry is currently empty.
+- else
+  = will_paginate
+  .row
+    .col-md-2.col-xs-2 Food
+    .col-md-2.col-xs-2 Servings Left
+    .col-md-2.col-xs-2 Amount Paid 
+    .col-md-2.col-xs-2 Discount Amount
+    .col-md-2.col-xs-2 Store
+    .col-md-2.col-xs-2 Date Bought
+  .row
+    #accordian.panel-group
+    - current_food, last_food = nil, nil
+    - @stocks.each do |stock|
+      - if current_food != last_food
+        - current_food, current_total = stock.id, @totals.find_by(food_id: stock.food.id)
+        .panel.panel-info
+          .panel-heading
+            %h4.panel-title
+              %a.accordian-toggle{ :href => "#food_data_#{current_food}", :data => {:toggle => "collapse",:parent => "#accordian"}}
+                .row
+                  .col-md-2.col-xs-2 
+                    = stock.food.name
+                  .col-md-2.col-xs-2 
+                    = current_total.quantity
+                  .col-md-2.col-xs-2 
+                    = current_total.price
+                  .col-md-2.col-xs-2 
+                    = current_total.discount
+                  .col-md-2.col-xs-2 
+                  .col-md-2.col-xs-2 
+          .panel-collapse.collapse{id: "food_date#{current_food}"}
+            .panel-body
+              .container
+      .row
+        .col-md-2.col-xs-2
+        .col-md-2.col-xs-2 
+          = stock.quantity
+        .col-md-2.col-xs-2 
+          = number_to_currency(stock.price, precision: 2)
+        .col-md-2.col-xs-2
+          = number_to_currency(stock.discount, precision: 2)
+        .col-md-2.col-xs-2
+          = stock.store.name
+        .col-md-2.col-xs-2
+          = stock.bought
+      - last_food = current_food
+  = will_paginate
+%br
+
+= link_to 'New Stock', new_stock_path, :class => 'btn btn-default btn-sm'
+-->

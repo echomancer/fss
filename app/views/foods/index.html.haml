@@ -1,0 +1,29 @@
+%h1 Listing foods
+.container
+  %table.table-condensed
+    %tr
+      %th Name
+      %th Producer
+      %th Upc
+      %th Servings
+      %th Serving size
+      %th Unit
+      %th
+      %th
+      %th
+
+    - @foods.each do |food|
+      %tr
+        %td= food.name
+        %td= food.producer.name
+        %td= food.upc
+        %td= food.servings
+        %td= food.serving_size
+        %td= food.unit.name
+        %td= link_to 'Show', food
+        %td= link_to 'Edit', edit_food_path(food)
+        %td= link_to 'Destroy', food, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+  %br
+
+  = link_to 'New Food', new_food_path, :class => 'btn btn-default btn-sm'

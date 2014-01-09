@@ -1,0 +1,13 @@
+= simple_form_for(@food) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :producer
+    = f.input :upc
+    = f.input :servings
+    = f.input :serving_size
+    = f.input :unit
+
+  .form-actions
+    = f.button :submit
