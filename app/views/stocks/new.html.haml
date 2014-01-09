@@ -1,5 +1,11 @@
-%h1 New stock
+.row
+	.col-md-4.col-xs-4
+		%h1 New Stock
+		= render 'form'
+	.col-md-2.col-xs-2
+		%h3 New Store
+		= render 'store_form'
 
-= render 'form'
-
-= link_to 'Back', stocks_path
+%br/
+.row
+	= link_to 'Back', stocks_path

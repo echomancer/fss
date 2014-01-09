@@ -1,4 +1,5 @@
 class StocksController < ApplicationController
+  load_and_authorize_resource
   before_action :set_stock, only: [:show, :edit, :update, :destroy]
 
   # GET /stocks
@@ -16,6 +17,7 @@ class StocksController < ApplicationController
   # GET /stocks/new
   def new
     @stock = Stock.new
+    @store = Store.new
   end
 
   # GET /stocks/1/edit
@@ -27,7 +29,6 @@ class StocksController < ApplicationController
   def create
     @stock = Stock.new(stock_params)
     @stock.quantity = @stock.food.servings * @stock.quantity  #Let get the number of servings
-    @stock.store = Store.find_or_create_by(name: params["stock"]["store"].downcase)
 
     respond_to do |format|
       if @stock.save
@@ -72,6 +73,6 @@ class StocksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stock_params
-      params.require(:stock).permit(:food_id, :price, :quantity, :store_id, :discount, :bought, :user_id)
+      params.require(:stock).permit(:food_id, :price, :quantity, :store_id, :discount, :bought, :user_id, :store)
     end
 end

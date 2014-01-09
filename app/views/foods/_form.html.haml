@@ -3,11 +3,11 @@
 
   .form-inputs
     = f.input :name
-    = f.input :producer
+    = f.association :producer, include_blank: false
     = f.input :upc
     = f.input :servings
     = f.input :serving_size
-    = f.input :unit
+    = f.association :unit, include_blank: false
 
   .form-actions
     = f.button :submit

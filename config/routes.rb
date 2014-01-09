@@ -1,6 +1,8 @@
 Fss::Application.routes.draw do
+  resources :stores
+  resources :units
+  resources :producers
   resources :stocks
-
   resources :foods
 
   root :to => "home#index"

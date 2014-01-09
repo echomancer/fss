@@ -1,5 +1,14 @@
-%h1 New food
+.row
+	.col-md-2.col-xs-2
+		%h1 New Food
+		= render 'form'
+	.col-md-2.col-xs-2
+		%h3 New Producer
+		= render 'producer_form'
+		%br/
+		%h3 New Unit
+		= render 'unit_form'
 
-= render 'form'
-
-= link_to 'Back', foods_path
+%br/
+.row
+	= link_to 'Back', foods_path

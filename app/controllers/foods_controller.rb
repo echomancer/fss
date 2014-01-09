@@ -1,4 +1,5 @@
 class FoodsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_food, only: [:show, :edit, :update, :destroy]
 
   # GET /foods
@@ -26,8 +27,6 @@ class FoodsController < ApplicationController
   def create
     @food = Food.new(food_params)
     @food.name = @food.name.downcase
-    @food.producer = Producer.find_or_create_by(name: params["food"]["producer"].downcase)
-    @food.unit = Unit.find_or_create_by(name: params["food"]["unit"].downcase)
 
     respond_to do |format|
       if @food.save
