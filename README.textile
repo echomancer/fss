@@ -81,4 +81,4 @@ Primary Developer: Jason Perkins
 
 h2. License
 
-[MIT](http://www.opensource.org/licenses/mit-license)
+http://www.opensource.org/licenses/mit-license
