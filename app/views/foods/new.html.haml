@@ -1,7 +1,16 @@
 .row
 	.col-md-2.col-xs-2
+	- if !Producer.first.nil? && !Unit.first.nil?
 		%h1 New Food
 		= render 'form'
+	- else
+		- if Producer.first.nil? && Unit.first.nil? 
+			%h3 Please create one producer and unit first
+		- elsif Producer.first.nil?
+			%h3 Please create one producer first
+		- elsif
+			%h3 Please create one unit first
+		%br/
 	.col-md-2.col-xs-2
 		%h3 New Producer
 		= render 'producer_form'

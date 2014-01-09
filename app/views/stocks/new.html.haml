@@ -1,7 +1,17 @@
 .row
 	.col-md-4.col-xs-4
+	- if !Store.first.nil? && !Food.first.nil?
 		%h1 New Stock
 		= render 'form'
+	- else
+		- if Store.first.nil? && Food.first.nil?
+			%h3 Please create at least one store and food
+			= link_to "Create New Food", new_food_path
+		- elsif Store.first.nil?
+			%h3 Please create at least one store
+		- elsif Food.first.nil?
+			= link_to "Create New Food", new_food_path
+		%br/
 	.col-md-2.col-xs-2
 		%h3 New Store
 		= render 'store_form'
