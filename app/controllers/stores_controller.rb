@@ -33,7 +33,8 @@ class StoresController < ApplicationController
         format.html { redirect_to new_stock_path, notice: 'Store was successfully created.' }
         format.json { render action: 'show', status: :created, location: @store }
       else
-        format.html { render action: 'new' }
+        flash[:error] = "Store can't be an empty string."
+        format.html { redirect_to new_stock_path }
         format.json { render json: @store.errors, status: :unprocessable_entity }
       end
     end
@@ -47,7 +48,8 @@ class StoresController < ApplicationController
         format.html { redirect_to new_stock_path, notice: 'Store was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        flash[:error] = "Store can't be an empty string."
+        format.html { redirect_to new_stock_path }
         format.json { render json: @store.errors, status: :unprocessable_entity }
       end
     end
@@ -58,7 +60,7 @@ class StoresController < ApplicationController
   def destroy
     @store.destroy
     respond_to do |format|
-      format.html { redirect_to new_stock_path }
+      format.html { redirect_to new_stock_path, flash: @store.errors}
       format.json { head :no_content }
     end
   end

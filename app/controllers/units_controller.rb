@@ -33,7 +33,8 @@ class UnitsController < ApplicationController
         format.html { redirect_to new_food_path, notice: 'Unit was successfully created.' }
         format.json { render action: 'show', status: :created, location: @unit }
       else
-        format.html { render action: 'new' }
+        flash[:error] = "Unit can't be an empty string."
+        format.html { redirect_to new_food_path }
         format.json { render json: @unit.errors, status: :unprocessable_entity }
       end
     end
@@ -47,7 +48,8 @@ class UnitsController < ApplicationController
         format.html { redirect_to new_food_path, notice: 'Unit was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        flash[:error] = "Unit can't be an empty string."
+        format.html { redirect_to new_food_path }
         format.json { render json: @unit.errors, status: :unprocessable_entity }
       end
     end

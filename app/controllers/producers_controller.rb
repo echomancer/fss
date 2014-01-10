@@ -33,7 +33,8 @@ class ProducersController < ApplicationController
         format.html { redirect_to new_food_path, notice: 'Producer was successfully created.' }
         format.json { render action: 'show', status: :created, location: @producer }
       else
-        format.html { render action: 'new' }
+        flash[:error] = "Producer can't be an empty string."
+        format.html { redirect_to new_food_path }
         format.json { render json: @producer.errors, status: :unprocessable_entity }
       end
     end
@@ -47,7 +48,8 @@ class ProducersController < ApplicationController
         format.html { redirect_to new_food_path, notice: 'Producer was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        flash[:error] = "Producer can't be an empty string."
+        format.html { redirect_to new_food_path }
         format.json { render json: @producer.errors, status: :unprocessable_entity }
       end
     end
