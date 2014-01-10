@@ -15,7 +15,7 @@ gem 'cancan'
 gem 'devise'
 gem 'figaro'
 gem 'haml-rails'
-gem 'pg'
+gem 'pg', '0.15.1'
 gem 'rolify'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
@@ -49,6 +49,5 @@ group :test do
   gem 'launchy'
 end
 group :production do
-  gem 'pg', '0.15.1'
   gem 'rails_12factor', '0.0.2'
 end
