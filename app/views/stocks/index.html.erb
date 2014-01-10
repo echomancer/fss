@@ -19,7 +19,7 @@
         <% if current_food != last_food %>
           <% current_total = @totals.find_by(food_id: stock.food.id) %>
           <% if last_food != nil %>
-            </tbody></table></div></div>
+            </tbody></table></div></div></div></div>
           <% end %><!-- end of table and closing divs -->
           <div class="panel panel-info">
             <div class="panel-heading">
@@ -48,7 +48,7 @@
                     </thead>
                     <tbody>
         <% end %><!-- end of panel info -->
-                      <tr>
+                      <tr data-href=<%= edit_stock_path(stock) %>>
                         <td><%= stock.quantity %></td>
                         <td><%= number_to_currency(stock.price-stock.discount, precision: 2) %></td>
                         <td><%= number_to_currency(stock.discount, precision: 2) %></td>
