@@ -73,16 +73,15 @@ Fss::Application.configure do
   config.active_support.deprecation = :notify
 
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
+    address: "smtp.mandrillapp.com",
     port: 587,
-    domain: ENV["DOMAIN_NAME"],
+    domain: "heroku.com",
     authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"]
+    user_name: ENV["MANDRILL_USERNAME"],
+    password: ENV["MANDRILL_APIKEY"]
   }
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'example.com' }
+  config.action_mailer.default_url_options = { :host => 'heroku.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
