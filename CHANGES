@@ -1,3 +1,9 @@
+Version 0.1.1:
+ - adding files
+ - Merge tag '0.1.0' into develop
+ - Merge branch 'release/0.1.0'
+ - Updateding to friendly_id
+
 Version 0.1.0
  - Adding updated css, cyborg theme
  - Fixed an error with the javascript and redid the food index
