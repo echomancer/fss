@@ -11,12 +11,10 @@ gem "cancan"
 gem "rolify"
 gem "awesome_print"
 gem 'bootstrap-sass', '>= 3.0.0.0'
-gem 'cancan'
 gem 'devise'
 gem 'figaro'
 gem 'haml-rails'
 gem 'pg', '0.15.1'
-gem 'rolify'
 gem 'simple_form'
 gem 'thin'
 gem "will_paginate"
