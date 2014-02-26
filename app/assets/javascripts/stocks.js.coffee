@@ -7,7 +7,8 @@ row_click = ->
 	return false;
 
 ready = ->
-	$('tr').on('click', row_click);
+	if $("#access").length != 0
+		$('tr').on('click', row_click);
 
 $(document).ready(ready);
 $(document).on('page:load', ready);

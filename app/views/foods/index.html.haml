@@ -1,28 +1,29 @@
 %h1 Listing foods
-.container
-  %table.table-condensed
-    %tr
-      %th Name
-      %th Producer
-      %th Upc
-      %th Servings
-      %th Serving size
-      %th Unit
-      %th
-      %th
-      %th
-
-    - @foods.each do |food|
+.row
+  .col-xs-12.col-md-12
+    %table.table-condensed
       %tr
-        %td= food.name
-        %td= food.producer.name
-        %td= food.upc
-        %td= food.servings
-        %td= food.serving_size
-        %td= food.unit.name
-        %td= link_to 'Show', food
-        %td= link_to 'Edit', edit_food_path(food)
-        %td= link_to 'Destroy', food, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %th Name
+        %th Producer
+        %th Upc
+        %th Servings
+        %th Serving size
+        %th Unit
+        %th
+        %th
+        %th
+
+      - @foods.each do |food|
+        %tr
+          %td= food.name
+          %td= food.producer.name
+          %td= food.upc
+          %td= food.servings
+          %td= food.serving_size
+          %td= food.unit.name
+          %td= link_to 'Show', food
+          %td= link_to 'Edit', edit_food_path(food)
+          %td= link_to 'Destroy', food, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
   %br
 

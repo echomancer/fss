@@ -2,7 +2,7 @@
   = f.error_notification
 
   .form-inputs
-    = f.association :food, include_blank: false
+    = f.association :food, include_blank: false, label_method: :display_name
     = f.input :price
     = f.input :quantity
     = f.association :store, label: 'Store Name', include_blank: false
