@@ -25,6 +25,8 @@
           %td= link_to 'Edit', edit_food_path(food)
           %td= link_to 'Destroy', food, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
+.row
   %br
-
-  = link_to 'New Food', new_food_path, :class => 'btn btn-default btn-sm'
+.row
+  .col-xs-12.col-md-12
+    = link_to 'New Food', new_food_path, :class => 'btn btn-default btn-sm'
