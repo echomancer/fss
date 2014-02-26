@@ -1,4 +1,6 @@
 class Food < ActiveRecord::Base
+	extend FriendlyId
+  	friendly_id :display_name, use: :slugged
 	resourcify
 	belongs_to :producer
 	belongs_to :unit

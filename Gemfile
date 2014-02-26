@@ -18,10 +18,16 @@ gem 'haml-rails'
 gem 'pg', '0.15.1'
 gem 'rolify'
 gem 'simple_form'
-gem 'therubyracer', :platform=>:ruby
 gem 'thin'
 gem "will_paginate"
 gem "bootstrap-will_paginate"
+gem "friendly_id", '~> 5.0.0'
+
+group :assets do
+  gem 'therubyracer', :platform=>:ruby
+  gem 'execjs'
+end
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
@@ -37,10 +43,12 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
 end
+
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
 end
+
 group :test do
   gem 'capybara'
   gem 'cucumber-rails', :require=>false
@@ -48,6 +56,7 @@ group :test do
   gem 'email_spec'
   gem 'launchy'
 end
+
 group :production do
   gem 'rails_12factor', '0.0.2'
 end
