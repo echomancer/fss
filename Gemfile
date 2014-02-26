@@ -20,6 +20,7 @@ gem 'thin'
 gem "will_paginate"
 gem "bootstrap-will_paginate"
 gem "friendly_id", '~> 5.0.0'
+gem 'mandrill-api'
 
 group :assets do
   gem 'therubyracer', :platform=>:ruby
