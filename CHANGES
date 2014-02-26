@@ -1,0 +1,34 @@
+Version 0.1.0
+ - Adding updated css, cyborg theme
+ - Fixed an error with the javascript and redid the food index
+ - Adding precompiled assets for Heroku
+ - Updating gem for Heroku
+ - Fixed error of stock index and adding links to edit a pantry item
+ - Validations and fixed the display to properly close the table and panel for each new item
+ - More streamlined when no base models are ready
+ - Adding controllers for all models and inline forms for basic models
+ - Updating readme file
+ - Updating readme file
+ - Updating readme file
+ - Updating readme file
+ - Updating scopes and Setting up devise initializer
+ - Adding models and scaffolds and doing custom index for stock aka pantry
+ - Setting up better bootstrap display
+ - Updated schema
+ - rails_apps_composer: extras
+ - rails_apps_composer: set up database
+ - rails_apps_composer: cucumber files
+ - rails_apps_composer: rspec files
+ - rails_apps_composer: navigation links
+ - rails_apps_composer: add README files
+ - rails_apps_composer: routes
+ - rails_apps_composer: views
+ - rails_apps_composer: controllers
+ - rails_apps_composer: testing framework
+ - rails_apps_composer: models
+ - rails_apps_composer: front-end framework
+ - rails_apps_composer: generators
+ - rails_apps_composer: set email accounts
+ - rails_apps_composer: Gemfile
+ - rails_apps_composer: initial commit
+
